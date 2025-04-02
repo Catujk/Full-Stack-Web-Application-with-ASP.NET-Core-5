@@ -25,7 +25,7 @@
 ![Skills](/screenshots/Skills.png)
 
 ### 🧠 Skills Management
-![Skills](/screenshots/AdminSkillManagment.png)
+![Skills](/screenshots/AdminSkilManagment.png)
 
 ### 👤 Reference Page
 ![Portfolio](/screenshots/Testimonials.png)
@@ -33,4 +33,7 @@
 ### 👤 Reference Managment
 ![Portfolio](/screenshots/AdminReferenceManagment.png)
 
+### Writer Dashboard
+![Writer](/screenshots/WriterDashboard.png)
+![Writer](/screenshots/WriterDashboard2.png)
 ---
