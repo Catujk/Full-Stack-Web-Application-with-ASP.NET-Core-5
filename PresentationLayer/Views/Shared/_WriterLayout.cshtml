@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<img src="d:\coreproject\presentationlayer\wwwroot\skydash\images\favicon.png" />
+
+@await Html.PartialAsync("~/Areas/Writer/Views/Default/_HeadPartial.cshtml")
+
+<body>
+    <div class="container-scroller">
+        <!-- partial:~/skydash/partials/_navbar.html -->
+        @await Html.PartialAsync("~/Areas/Writer/Views/Default/_NavBarPartial.cshtml")
+
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:~/skydash/partials/_settings-panel.html -->
+            <!-- partial -->
+            <!-- partial:~/skydash/partials/_sidebar.html -->
+            @await Html.PartialAsync("~/Areas/Writer/Views/Default/_SideBarPartial.cshtml")
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    @RenderBody()
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:~/skydash/partials/_footer.html -->
+                @await Html.PartialAsync("~/Areas/Writer/Views/Default/_FooterPartial.cshtml")
+
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    @await Html.PartialAsync("~/Areas/Writer/Views/Default/_ScriptPartial.cshtml")
+
+</body>
+
+</html>

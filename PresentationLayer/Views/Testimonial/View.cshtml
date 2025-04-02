@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.Testimonial
+
+@{
+    ViewData["Title"] = "View Testimonial";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Testimonial Details</h4>
+            <div class="form-group">
+                <label for="ClientName">Client Name</label>
+                <input type="text" class="form-control bg-dark text-white border-0" id="ClientName" value="@Model.ClientName" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Company">Company</label>
+                <input type="text" class="form-control bg-dark text-white border-0" id="Company" value="@Model.Company" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Comment">Comment</label>
+                <textarea class="form-control bg-dark text-white border-0" id="Comment" rows="6" readonly>@Model.Comment</textarea>
+            </div>
+            <div class="form-group">
+                <label for="ImageUrl">Image URL</label>
+                <input type="text" class="form-control bg-dark text-white border-0" id="ImageUrl" value="@Model.ImageUrl" readonly>
+            </div>
+            <div class="form-group text-center">
+                <a asp-action="Index" class="btn btn-primary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model EntityLayer.Concrete.WriterMessage
+
+@{
+    ViewData["Title"] = "Message Detail";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Message Detail</h4>
+            <div class="form-group">
+                <label for="SenderName">Sender Name</label>
+                <input type="text" class="form-control" id="SenderName" value="@Model.SenderName" readonly>
+            </div>
+            <div class="form-group">
+                <label for="SenderMail">Sender Email</label>
+                <input type="text" class="form-control" id="SenderMail" value="@Model.SenderMail" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Subject">Subject</label>
+                <input type="text" class="form-control" id="Subject" value="@Model.Subject" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Message">Message</label>
+                <textarea class="form-control" id="Message" rows="6" readonly>@Model.Message</textarea>
+            </div>
+            <div class="form-group">
+                <label for="MessageDate">Message Date</label>
+                <input type="text" class="form-control" id="MessageDate" value="@Model.MessageDate.ToString("g")" readonly>
+            </div>
+            <div class="form-group text-center">
+                <a href="/Writer/Message/ReceiverMessage/" class="btn btn-primary">Back to Inbox</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+﻿@using EntityLayer.Concrete
+@model List<WriterUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-md-6">
+    <div class="p-2">
+        <button type="button" id="btngetlistall" class="btn btn-outline-primary">Get List</button>
+        <button type="button" id="btnadduser" class="btn btn-outline-info">Save</button>
+
+    </div>
+</div>
+
+<h6 class="mb-0 text-uppercase">Writer Users</h6>
+
+
+<br />
+
+<div class="col-md-12">
+    <h6 class="mb-0 text-uppercase">Add Writer User</h6>
+    <br />
+    <input type="text" id="txtname" class="form-control" placeholder="Name">
+    <br />
+    <input type="text" id="txtsurname" class="form-control" placeholder="Surname">
+    <br />
+    <input type="text" id="txtusername" class="form-control" placeholder="Username">
+    <br />
+    <input type="text" id="txtemail" class="form-control" placeholder="Email">
+    <br />
+    <button type="button" id="btnadduser" class="btn btn-outline-info">Save</button>
+        
+</div>
+
+
+@section Scripts
+{
+    <script>
+        $("#btngetlistall").click(function(){
+            $.ajax(
+            {
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/WriterUser/GetWriterUserList/",
+
+                success: function(funk){
+                    let users = jQuery.parseJSON(funk);
+                    console.log(users);
+                }
+            })
+        });
+    </script>
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>

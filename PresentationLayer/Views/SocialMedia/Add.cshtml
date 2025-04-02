@@ -1,0 +1,46 @@
+﻿@model EntityLayer.Concrete.SocialMedia
+
+@{
+    ViewData["Title"] = "Add Social Media";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Add Social Media</h4>
+            <form asp-action="Add" method="post" class="forms-sample">
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" class="form-control" placeholder="Enter name" required>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Url">URL</label>
+                    <input asp-for="Url" class="form-control" placeholder="Enter URL" required>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Icon">Icon</label>
+                    <input asp-for="Icon" class="form-control" placeholder="Enter icon" required>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Status">Status</label>
+                    <select asp-for="Status" class="form-control">
+                        <option value="true">Active</option>
+                        <option value="false">Inactive</option>
+                    </select>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary mr-2">Add</button>
+                    <a asp-action="Index" class="btn btn-light">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

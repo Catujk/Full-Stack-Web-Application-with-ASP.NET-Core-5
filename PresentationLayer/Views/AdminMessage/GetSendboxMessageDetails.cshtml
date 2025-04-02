@@ -1,0 +1,38 @@
+﻿@model EntityLayer.Concrete.WriterMessage
+@{
+    ViewData["Title"] = "GetSendboxMessageDetails";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Message Detail</h4>
+            <div class="form-group">
+                <label for="SenderName">Receiver Name</label>
+                <input type="text" class="form-control bg-dark text-white" id="Receiver" value="@Model.ReceiverName" readonly>
+            </div>
+            <div class="form-group">
+                <label for="SenderMail">Receiver Email</label>
+                <input type="text" class="form-control bg-dark text-white" id="ReceiverMail" value="@Model.ReceiverMail" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Subject">Subject</label>
+                <input type="text" class="form-control bg-dark text-white" id="Subject" value="@Model.Subject" readonly>
+            </div>
+            <div class="form-group">
+                <label for="Content">Content</label>
+                <input type="text" class="form-control bg-dark text-white" id="Content" value="@Model.Message" readonly>
+            </div>
+            <div class="form-group">
+                <label for="MessageDate">Message Date</label>
+                <input type="text" class="form-control bg-dark text-white" id="MessageDate" value="@Model.MessageDate.ToString("g")" readonly>
+            </div>
+            <div class="form-group text-center">
+                <a href="/AdminMessage/SendBox/" class="btn btn-primary">Back to Inbox</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

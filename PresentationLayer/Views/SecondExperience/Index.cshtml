@@ -1,0 +1,139 @@
+﻿@using EntityLayer.Concrete
+@model List<Experience>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-md-6">
+    <div class="p-2">
+        <button type="button" id="btngetlistall" class="btn btn-outline-primary">Get List</button>
+        <button type="button" id="btnadd" class="btn btn-outline-info">Save</button>
+        <button type="button" id="btngetbyid" class="btn btn-outline-info">Get By Id</button>
+        <button type="button" id="btndelete" class="btn btn-outline-warning">Delete</button>
+        <button type="button" id="btnupdate" class="btn btn-outline-succes">Update</button>
+
+    </div>
+</div>
+<h6 class="mb-0 text-uppercase">Experiences</h6>
+
+<div class="p-2 " id="divlist">
+</div>
+
+<br />
+
+<h6 class="mb-0 text-uppercase">Experiences By Id</h6>
+<div class="p-2 " id="divbyidlist">
+</div>
+
+
+<div class="col-md-12">
+    <h6 class="mb-0 text-uppercase">Add Experience</h6>
+    <br />
+    <input type="text" id="txtname" class="form-control" placeholder="Name">
+    <br />
+    <input type="text" id="txtdate" class="form-control" placeholder="Date">
+    <br />
+
+</div>
+
+<div class="col-md-12">
+    <h6 class="mb-0 text-uppercase">Get Experience By Id</h6>
+    <br />
+    <input type="text" id="txtid" class="form-control" placeholder="Id">
+    <br />
+</div>
+
+<div class="col-md-12">
+    <h6 class="mb-0 text-uppercase">Delete Experience By Id</h6>
+    <br />
+    <input type="text" id="inpexpid" class="form-control" placeholder="Id">
+    <br />
+</div>
+
+
+@section Scripts
+{
+    <script>
+        $("#btngetlistall").click(function(){
+            $.ajax(
+            {
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/SecondExperience/GetExperienceList/",
+
+                success: function(funk){
+                    let values = jQuery.parseJSON(funk);
+                    console.log(values);
+
+                    let htmlst="<table class=table table-bordered><tr> <th> ID </th> <th> Title </th> <th>Date </th> </tr>";
+                    $.each(values, (index, value) => {
+                        htmlst += "<tr><td>" + value.ExperienceId + "</td><td>" + value.Name + "</td><td>" + value.Date + "</td></tr>";
+                    });
+
+                    htmlst += "</table>";
+
+                    $("#divlist").html(htmlst);
+                }
+            })
+        });
+
+        // btnadd
+        $("#btnadd").click(function(){
+            let values = {
+                    Name:  $("#txtname").val(),
+                    Date:  $("#txtdate").val()
+                    };
+
+            $.ajax(
+            {
+                type: "Post",
+                url: "/SecondExperience/AddExperience/",
+                data: values,
+                success: function(funk1){
+                    let result = jQuery.parseJSON(funk1);
+                    alert("Added");
+                }
+            })
+        });
+
+        // btngetbyid
+        $("#btngetbyid").click(function(){
+            let id = $("#txtid").val();
+            $.ajax({
+                type: "GET",
+                url: "/SecondExperience/GetById/" + id,
+                contentType: "application/json",
+                dataType: "json",
+                success: function(result){
+                    let results = jQuery.parseJSON(result);
+                    let htmlstr = `<table class='table table-hover'>
+                                    <tr><th>ID</th><td>${results.ExperienceId}</td></tr>
+                                    <tr><th>Name</th><td>${results.Name}</td></tr>
+                                    <tr><th>Date</th><td>${results.Date}</td></tr>
+                                   </table>`;
+                    $("#divbyidlist").html(htmlstr);
+                }
+            });
+        });
+
+        // btndelete
+        $("#btndelete").click(function(){
+            let id = $("#inpexpid").val();
+            $.ajax({
+                type: "Post",
+                url: "/SecondExperience/DeleteById/" + id,
+                contentType: "application/json",
+                dataType: "json",
+                success: function(funk3){
+                    loadData();
+                }
+            });
+        });
+       
+
+    </script>
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>

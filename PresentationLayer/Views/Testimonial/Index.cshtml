@@ -1,0 +1,51 @@
+﻿@using EntityLayer.Concrete
+@model List<Testimonial>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper px-4 py-3">
+        <div class="card shadow-sm">
+            <div class="card-header bg-gradient-dark text-white d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">Testimonials</h4>
+                <a asp-action="Add" class="btn btn-success">+ Add New</a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Company</th>
+                                <th>Comment</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var exp in Model)
+                            {
+                                <tr>
+                                    <td>@exp.ClientName</td>
+                                    <td>@exp.Company</td>
+                                    <td>@(exp.Comment.Length > 50 ? exp.Comment.Substring(0, 100) + "..." : exp.Comment)</td>
+                                    <td>
+                                        <a asp-action="View" asp-route-id="@exp.TestimonialId" class="btn btn-info btn-sm">View</a>
+                                        <a asp-action="Update" asp-route-id="@exp.TestimonialId" class="btn btn-warning btn-sm">Edit</a>
+                                        <a asp-action="Delete" asp-route-id="@exp.TestimonialId" class="btn btn-danger btn-sm">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
