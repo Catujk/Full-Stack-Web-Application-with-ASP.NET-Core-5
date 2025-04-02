@@ -19,15 +19,18 @@
 ## 📸 Screenshots
 
 ### ✅ Admin Panel (Dark Mode)
-![Admin Panel](/screenshots/admin-panel.png)
+![Admin Panel](/screenshots/AdminDash.png)
 
 ### 🧠 Skills Page
-![Skills](/screenshots/skills.png)
+![Skills](/screenshots/Skills.png)
 
 ### 🧠 Skills Management
-![Skills](/screenshots/skillsmg.png)
+![Skills](/screenshots/AdminSkillManagment.png)
 
-### 👤 Portfolio Page
-![Portfolio](/screenshots/portfolio.png)
+### 👤 Reference Page
+![Portfolio](/screenshots/Testimonials.png)
+
+### 👤 Reference Managment
+![Portfolio](/screenshots/AdminReferenceManagment.png)
 
 ---
